@@ -341,38 +341,18 @@ impl<'a> Strategy<'a> {
 
     fn construct_start_long(&mut self, to_execute: &mut Vec<Order>, index: usize) {
         self.record_trade(to_execute, index, TradeType::OPEN, 0.00007, Direction::LONG);
-        /*
-        if !self.strategy_state.is_long_active {
-            self.strategy_state.is_long_active = true;
-        }
-        */
     }
 
     fn construct_start_short(&mut self, to_execute: &mut Vec<Order>, index: usize) {
         self.record_trade(to_execute, index, TradeType::OPEN, -0.00007, Direction::SHORT);
-        /*
-        if !self.strategy_state.is_short_active {
-            self.strategy_state.is_short_active = true;
-        }
-        */
     }
 
     fn construct_end_long(&mut self, to_execute: &mut Vec<Order>, index: usize) {
         self.record_trade(to_execute, index, TradeType::CLOSE, -0.00007, Direction::LONG);
-        /*
-        if!self.strategy_state.is_long_active {
-            self.strategy_state.is_long_active = false;
-        }
-        */
     }
 
     fn construct_end_short(&mut self, to_execute: &mut Vec<Order>, index: usize) {
         self.record_trade(to_execute, index, TradeType::CLOSE, 0.00007, Direction::SHORT);
-        /*
-        if self.strategy_state.is_short_active {
-            self.strategy_state.is_short_active = false;
-        }
-        */
     }
 
     fn record_trade(
